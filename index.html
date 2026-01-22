@@ -26,7 +26,6 @@
         h1 { font-size: 2.2em; letter-spacing: 12px; margin: 0; font-weight: 400; color: #d4af37; }
         .subtitle { margin-top: 15px; font-size: 1.1em; color: #8e793e; border-bottom: 1px solid #222; padding-bottom: 25px; display: inline-block; }
         
-        /* 碼表 */
         #timer { font-size: 75px; margin: 40px 0; font-family: 'Georgia', serif; color: #efefef; letter-spacing: 2px; }
 
         .btn-start {
@@ -51,7 +50,7 @@
     <div id="timer">00:00:00</div>
 
     <audio id="buddhaAudio" loop preload="auto">
-        <source src="https://files.catbox.moe/v9tsdt.mp3" type="audio/mpeg">
+        <source src="6buddha.mp3" type="audio/mpeg">
     </audio>
 
     <button id="ctrlBtn" class="btn-start" onclick="togglePlay()">開始精進</button>
@@ -80,7 +79,8 @@
                 startTimer();
                 ctrlBtn.innerText = "暫停攝心";
             }).catch(err => {
-                statusText.innerText = "載入中，請再試一次";
+                statusText.innerText = "讀取失敗，請確認檔案已上傳且檔名正確";
+                console.error(err);
             });
         } else {
             audio.pause();
